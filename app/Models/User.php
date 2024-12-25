@@ -64,7 +64,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function hotels(){
+    public function holtes(){
         return $this->hasMany(Hotel::class);
     }
 

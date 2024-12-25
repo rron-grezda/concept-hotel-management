@@ -24,6 +24,7 @@ class CreateHotelsTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('zip');
+            $table->string('image')->default('https://cdn.britannica.com/96/115096-050-5AFDAF5D/Bellagio-Hotel-Casino-Las-Vegas.jpg');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
