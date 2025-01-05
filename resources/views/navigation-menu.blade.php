@@ -8,11 +8,11 @@
                     <a href="{{ route('dashboard') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
-                </div>
+                </div>                
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" style="text-decoration: none;">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
@@ -100,7 +100,7 @@
                                 {{ __('Manage Account') }}
                             </div>
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                            <x-jet-dropdown-link href="{{ route('profile.show') }}"  style="text-decoration: none;">
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
 
@@ -117,7 +117,7 @@
                                 @csrf
 
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
-                                         @click.prevent="$root.submit();">
+                                         @click.prevent="$root.submit();"  style="text-decoration: none;">
                                     {{ __('Log Out') }}
                                 </x-jet-dropdown-link>
                             </form>
@@ -178,7 +178,7 @@
                     @csrf
 
                     <x-jet-responsive-nav-link href="{{ route('logout') }}"
-                                   @click.prevent="$root.submit();">
+                                   @click.prevent="$root.submit();" class="no-underline">
                         {{ __('Log Out') }}
                     </x-jet-responsive-nav-link>
                 </form>

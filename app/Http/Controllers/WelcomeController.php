@@ -25,4 +25,9 @@ class WelcomeController extends Controller
 
         return view('search', ['hotels' => $hotels]);
     }
+
+    function getHotelDetails($id){
+        $hotel = Hotel::findOrFail($id);
+        return view('hotel-details', ['hotel'=>$hotel]);
+    }
 }

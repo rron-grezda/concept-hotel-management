@@ -20,7 +20,7 @@ Route::get('/country/{id}/cities', function($id){
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/search', [WelcomeController::class, 'search'])->name('search');
-
+Route::get('/hotel/{id}/details', [WelcomeController::class, 'getHotelDetails'])->name('hotel-details');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

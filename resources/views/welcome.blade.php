@@ -17,10 +17,10 @@
                     @auth
                         <a href="{{ url('/dashboard') }}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-speedometer2"></i> Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="btn btn-sm me-2 btn-outline-secondary"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+                        <a href="{{ route('login') }}" class="btn btn-sm me-2 btn-outline-secondary"><i class="bi bi-box-arrow-in-right"></i> Kyçu</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-person-add"></i> Register</a>
+                            <a href="{{ route('register') }}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-person-add"></i> Regjistrohu</a>
                         @endif
                     @endauth
                 </div>
@@ -38,7 +38,6 @@
                         </div>
                     @endif
                     <form action="/search" class="d-flex align-items-center justify-content-between gap-3">
-                        @csrf
                         <div class="form-group w-50">
                             <input type="search" name="hotel" required value="{{ old('hotel') }}" placeholder="Sheno emrin e hotelit" class="form-control">
                         </div>
