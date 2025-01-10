@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\WelcomeController;
 
 /*
@@ -25,5 +26,7 @@ Route::get('/hotel/{id}/details', [WelcomeController::class, 'getHotelDetails'])
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::post("/book", [BookController::class, 'book'])->name('book-room');
 
 require __DIR__.'/auth.php';

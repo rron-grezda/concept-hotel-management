@@ -17,8 +17,8 @@ class Bookings extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('room_id');
-            $table->dateTime('checkin');
-            $table->dateTime('checkout');
+            $table->date('checkin');
+            $table->date('checkout');
             $table->integer('guests');
             $table->timestamps();
 

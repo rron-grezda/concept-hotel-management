@@ -37,9 +37,10 @@
                             </ul>
                         </div>
                     @endif
+                    <h2 class="text-center mb-4">Kërko hotelet</h2>
                     <form action="/search" class="d-flex align-items-center justify-content-between gap-3">
                         <div class="form-group w-50">
-                            <input type="search" name="hotel" required value="{{ old('hotel') }}" placeholder="Sheno emrin e hotelit" class="form-control">
+                            <input type="search" name="hotel" required value="{{ old('hotel') }}" placeholder="Shëno emrin e hotelit" class="form-control">
                         </div>
                         <div class="form-group w-25">
                             <select name="country" id="country" required class="form-select">
@@ -54,12 +55,12 @@
                                 <option value="">Qyteti</option>
                                 @if(request()->get('country'))
                                     @foreach(App\Models\City::where('country_id', request()->get('country')) as $city)
-                                    <option value="{{ $country->id }}">{{ $city->name }}</option>
+                                    <option value="{{ $city->id }}">{{ $city->name }}</option>
                                     @endforeach
                                 @endif
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-outline-primary">Kerko</button>
+                        <button type="submit" class="btn btn-outline-primary"><i class="bi bi-search"></i></button>
                     </form>
                 </div>
             </div>

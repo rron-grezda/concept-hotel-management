@@ -55,30 +55,103 @@
                         </div>
                     </div>
 
+                     @if (Session::has('status'))
+                        <div class="alert alert-info mt-5">
+                            {{ Session::get('status') }}
+                        </div>
+                    @endif
+
+                    @if ($errors->any())
+                        <div class="alert alert-warning mt-5">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     @if($hotel->rooms()->count() > 0)
                     <table class="table table-bordered">
                         @foreach($hotel->rooms()->get() as $room)
                         <tr>
-                            <td>
+                            <td class="w-50">
                                 <strong>{{ $room->type }}</strong>
                                 <p>{{ $room->description }}</p>
                             </td>
                             <td><i class="bi bi-people"></i> {{ $room->guests }}</td>
                             <td>{{ $room->price }} EUR</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-outline-primary">Rezervo</a>
+                                @if(auth()->check())
+                                <button type="button" id="book-room-btn" room-id="{{ $room->id }}" guests="{{ $room->guests }}" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#bookRoom">
+                                    Rezervo
+                                </button>
+                                @else
+                                    <small class="bg-warning p-1"><i class="bi bi-info-circle"></i> Kyçu në mënyrë që të bësh rezervimin</small>
+                                @endif
                             </td>
                         </tr>
                         @endforeach
                     </table>
                     @else
                     <div class="alert alert-info mt-5" role="alert">
-                        Hoteli "{{ $hotel->name }}" nuk ka asnje dhome te lire aktualisht!
+                        Hoteli "{{ $hotel->name }}" nuk ka asnjë dhomë të lirë aktualisht!
                     </div>
                     @endif
                 </div>
             </section>
         </div>
         
+        <!-- Rezervo dhomen -->
+        <div class="modal fade" id="bookRoom" tabindex="-1" aria-labelledby="bookRoomLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="bookRoomLabel">Rezervo</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form method="POST" action="{{ route('book-room') }}">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="form-group mb-3">
+                                <label for="checkin">Data e akomodimit:</label>
+                                <input type="date" id="checkin" class="form-control" required name="checkin">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="checkout">Data e lëshimit të dhomës:</label>
+                                <input type="date" id="checkout" class="form-control" required name="checkout">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="guests">Numri i personave:</label>
+                                <input type="number" id="guests" value="1" class="form-control" required name="guests">
+                            </div>
+                            <input type="hidden" name="room_id" id="room_id" value="" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mbyll</button>
+                        <button type="submit" class="btn btn-primary">Rezervo</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script>
+            const book_room_buttons = document.querySelectorAll('#book-room-btn')
+            const guests_input = document.querySelector('#guests'); // Input-i per guests
+
+            book_room_buttons.forEach(book_room_btn => book_room_btn.addEventListener('click', e => {
+                e.preventDefault()
+                document.querySelector('#room_id').value = e.target.getAttribute('room-id')
+                document.querySelector('#guests').setAttribute('max', e.target.getAttribute('guests'))
+            }));
+
+            guests_input.addEventListener('input', () => {
+                if (guests_input.value < 1) {
+                guests_input.value = 1;
+                }
+            });
+        </script>
     </body>
 </html>

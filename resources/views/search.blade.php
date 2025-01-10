@@ -46,7 +46,7 @@
                                                 {{ $hotel->zip }}
                                                 {{ App\Models\City::where('id', $hotel->city_id)->first()->name }}
                                             </p>
-                                            <a href="{{ route('hotel-details', ['id' => $hotel->id]) }}" class="btn btn-sm btn-outline-primary">Me shume <i class="bi bi-arrow-right"></i></a>
+                                            <a href="{{ route('hotel-details', ['id' => $hotel->id]) }}" class="btn btn-sm btn-outline-primary">Më shumë <i class="bi bi-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                         </div>
                     @else
                     <div class="alert alert-info" role="alert">
-                        Nuk u gjet asnje hotel me parametrat:
+                        Nuk u gjet asnjë hotel me parametrat:
                         <strong><i?>
                         {{ request()->get('hotel') }},
                         {{ App\Models\Country::where('id', request()->get('country'))->first()->name }},
