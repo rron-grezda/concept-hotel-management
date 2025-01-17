@@ -81,7 +81,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h1>{{ $bookings }}</h1>
-                                        <p>bookings</p>
+                                        <a href="{{ route('bookings') }}" style="text-decoration: none;">bookings</a>
                                     </div>
                                 </div>        
                             </div>

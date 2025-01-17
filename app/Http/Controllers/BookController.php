@@ -26,6 +26,9 @@ class BookController extends Controller
         }
 
         return redirect()->back()->with('status', 'Rezervimi u anulua - diçka shkoi keq!');
-        
+    }
+
+    function bookings(){
+        return view('shared.bookings.index', ['bookings' => DB::table('bookings')->select('*')->where('user_id', auth()->id())->get()]);
     }
 }

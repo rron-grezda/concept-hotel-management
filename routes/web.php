@@ -28,5 +28,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::post("/book", [BookController::class, 'book'])->name('book-room');
+Route::get("/bookings", [BookController::class, 'bookings'])->name('bookings');
 
 require __DIR__.'/auth.php';
