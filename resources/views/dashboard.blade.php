@@ -22,7 +22,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h1>{{ $users }}</h1>
-                                    <p>users</p>
+                                    <p>Users</p>
                                 </div>
                             </div>        
                         </div>
@@ -30,7 +30,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h1>{{ $hotels }}</h1>
-                                    <p>hotels</p>
+                                    <p>Hotels</p>
                                 </div>
                             </div>        
                         </div>
@@ -38,7 +38,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h1>{{ $bookings }}</h1>
-                                    <p>bookings</p>
+                                    <a href="{{ route('bookings') }}" style="text-decoration: none;">
+                                        <p>Bookings</p>
+                                    </a>
                                 </div>
                             </div>        
                         </div>
@@ -60,14 +62,20 @@
                             </div>        
                         </div>
                         <div class="col-4">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h1>{{ $rooms }}</h1>
-                                            <p>rooms</p>
-                                        </div>
-                                    </div>        
+                            <div class="card">
+                                <div class="card-body">
+                                    <h1>{{ $rooms }}</h1>
+                                    <p>rooms</p>
                                 </div>
-                            </div>
+                            </div>        
+                        </div>
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h1><i class="bi bi-list-ul"></i></h1>
+                                    <a href="{{ route('bookings') }}" style="text-decoration: none;">bookings</a>
+                                </div>
+                            </div>        
                         </div>
                     </div>
                 @endrole

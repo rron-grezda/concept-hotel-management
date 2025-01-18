@@ -10,7 +10,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4">
-                @if(auth()->user()->bookings()->count() > 0)
+                @if($bookings->count() > 0)
                     <table class="table table-bordered mt-5">
                         <tr>
                             <th>#</th>
@@ -31,10 +31,10 @@
                             <td><i class="bi bi-calendar-check"></i> {{ $booking->checkin }}</td>
                             <td><i class="bi bi-calendar-x"></i> {{ $booking->checkout }}</td>
                             <td><i class="bi bi-people"></i> {{ $booking->guests }}</td>
-                                @if(auth()->check() && auth()->user()->hasRole('hotel-owner'))
+                            @if(auth()->check() && auth()->user()->hasRole(['hotel-owner', 'admin']))
                             <td>
-                                <a href="#" class="btn btn-sm btn-outline-danger" onclick="return confirm('A jeni i sigurtë?')">
-                                    <i class="bi bi-trash3"></i> Fshije
+                                <a href="{{ route('booking.delete', ['id' => $booking->id]) }}" class="btn btn-sm btn-outline-danger" onclick="return confirm('A jeni i sigurtë?')">
+                                    <i class="bi bi-trash"></i> Fshije
                                 </a>
                             </td>
                             @endif

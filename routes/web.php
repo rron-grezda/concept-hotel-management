@@ -29,5 +29,6 @@ Route::get('/dashboard', function () {
 
 Route::post("/book", [BookController::class, 'book'])->name('book-room');
 Route::get("/bookings", [BookController::class, 'bookings'])->name('bookings');
+Route::get("/booking/{id}/delete", [BookController::class, 'delete'])->name('booking.delete');
 
 require __DIR__.'/auth.php';
