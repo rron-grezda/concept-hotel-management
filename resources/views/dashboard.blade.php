@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4">
@@ -30,7 +32,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h1>{{ $hotels }}</h1>
-                                    <p>Hotels</p>
+                                    <a href="{{ route('hotels.index') }}" style="text-decoration: none;">
+                                        <p>Hotels</p>
+                                    </a>
                                 </div>
                             </div>        
                         </div>
@@ -57,7 +61,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h1>{{ count($hotels) }}</h1>
-                                    <p>hotels</p>
+                                    <a href="{{ route('hotels.index') }}" style="text-decoration: none;">
+                                        <p>Hotels</p>
+                                    </a>
                                 </div>
                             </div>        
                         </div>
@@ -65,7 +71,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h1>{{ $rooms }}</h1>
-                                    <p>rooms</p>
+                                    <p>Rooms</p>
                                 </div>
                             </div>        
                         </div>
@@ -73,7 +79,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h1><i class="bi bi-list-ul"></i></h1>
-                                    <a href="{{ route('bookings') }}" style="text-decoration: none;">bookings</a>
+                                    <a href="{{ route('bookings') }}" style="text-decoration: none;">
+                                        <p>Bookings</p>
+                                    </a>
                                 </div>
                             </div>        
                         </div>

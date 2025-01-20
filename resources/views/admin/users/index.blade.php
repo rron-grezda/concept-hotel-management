@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Rezervimet') }}
+            {{ __('Përdoruesit') }}
         </h2>
     </x-slot>
 
@@ -24,7 +24,7 @@
                         </tr>
                         @foreach($bookings as $booking)
                         <tr>
-                            <td>{{ $booking->id}}</td>
+                            <td>{{ $booking->id}}
                             <td class="w-50">
                                 <strong>{{ App\Models\Room::where('id', $booking->room_id)->first()->type }}</strong>
                             </td>

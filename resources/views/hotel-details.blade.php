@@ -28,7 +28,6 @@
 
             <section class="mt-5">
                 <div class="container">
-                   
                     <div class="d-flex justify-content-between align-items-start">
                         @php
                             $hotel_image_url = (str_contains($hotel->image, 'http')) ? $hotel->image : asset('storage/' .$hotel->image);

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\HotelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,7 @@ Route::get('/dashboard', function () {
 Route::post("/book", [BookController::class, 'book'])->name('book-room');
 Route::get("/bookings", [BookController::class, 'bookings'])->name('bookings');
 Route::get("/booking/{id}/delete", [BookController::class, 'delete'])->name('booking.delete');
+
+Route::resource('hotels', HotelController::class);
 
 require __DIR__.'/auth.php';
