@@ -10,6 +10,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4">
+                <a href="{{ route('hotels.create') }}" class="btn btn-sm btn-outline-primary"><i class="bi bi-plus"></i> Shto hotel të ri</a>
                 @if($hotels->count() > 0)
                     <table class="table table-bordered mt-5">
                         <tr>
@@ -46,8 +47,11 @@
                                 @endphp
                                 <img src="{{ $hotel_image_url }}" style="height: 80px !important;" alt="{{ $hotel->name }}">
                             </td>
-                            <td>
-                                <form method="POST" action="{{ route('hotels.destroy', ['hotel' => $hotel->id]) }}">
+                            <td width="110px">
+                                <a href="{{ route('hotels.edit', ['hotel' => $hotel->id]) }}" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <form method="POST" action="{{ route('hotels.destroy', ['hotel' => $hotel->id]) }}" class="d-inline">
                                     @csrf
                                     <!-- Bejme method spoofing per tu kthyer nga metoda POST ne DELETE -->
                                     @method('DELETE') 
