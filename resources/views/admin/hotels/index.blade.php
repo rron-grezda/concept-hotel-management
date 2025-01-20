@@ -26,7 +26,15 @@
                         @foreach($hotels as $hotel)
                         <tr>
                             <td>{{ $hotel->id}}</td>
-                            <td>{{ $hotel->name}}</td>
+                            <td>
+                                {{ $hotel->name}}
+                                <br><br>
+                                <span>Rooms: {{ $hotel->rooms()->count() }}</span>
+                                @role('hotel-owner')
+                                <br>
+                                <a href="" style="text-decoration: none;">Menaxho dhomat</a>
+                                @endrole
+                            </td>
                             <td>{{ $hotel->stars}}</td>
                             <td>{{ $hotel->email}}</td>
                             <td>{{ $hotel->phone}}</td>
@@ -51,11 +59,11 @@
                         </tr>
                         @endforeach
                     </table>
-                <!-- @else
+                @else
                     <div class="alert alert-info mt-5" role="alert">
                         Ende nuk keni bërë asnjë rezervim!
                     </div>
-                @endif -->
+                @endif
             </div>
         </div>
     </div>

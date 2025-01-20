@@ -54,7 +54,6 @@
                 @role('hotel-owner')
                     @php
                         $hotels = App\Models\Hotel::where('id', auth()->id())->get()->pluck('id')->toArray();
-                        $rooms = App\Models\Room::whereIn('hotel_id', $hotels)->count();
                     @endphp
                     <div class="row">
                         <div class="col-4">
@@ -64,14 +63,6 @@
                                     <a href="{{ route('hotels.index') }}" style="text-decoration: none;">
                                         <p>Hotels</p>
                                     </a>
-                                </div>
-                            </div>        
-                        </div>
-                        <div class="col-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h1>{{ $rooms }}</h1>
-                                    <p>Rooms</p>
                                 </div>
                             </div>        
                         </div>
