@@ -67,7 +67,7 @@
         </div>
         <script>
             document.querySelector('#country').addEventListener('change', e=>{
-                let cities = '';
+                let cities = '<option value="">Qyteti</option>';
                 let xhr = new XMLHttpRequest();
 
                 let url = `/country/${e.target.value}/cities`;

@@ -54,7 +54,7 @@
                         </div>
                     </div>
 
-                     @if (Session::has('status'))
+                    @if (Session::has('status'))
                         <div class="alert alert-info mt-5">
                             {{ Session::get('status') }}
                         </div>

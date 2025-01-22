@@ -53,7 +53,7 @@
 
                 @role('hotel-owner')
                     @php
-                        $hotels = App\Models\Hotel::where('id', auth()->id())->get()->pluck('id')->toArray();
+                        $hotels = App\Models\Hotel::where('user_id', auth()->id())->get()->pluck('id')->toArray();
                     @endphp
                     <div class="row">
                         <div class="col-4">

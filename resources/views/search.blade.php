@@ -55,7 +55,7 @@
                     @else
                     <div class="alert alert-info" role="alert">
                         Nuk u gjet asnjë hotel me parametrat:
-                        <strong><i?>
+                        <strong><i>
                         {{ request()->get('hotel') }},
                         {{ App\Models\Country::where('id', request()->get('country'))->first()->name }},
                         {{ App\Models\City::where('id', request()->get('city'))->first()->name }}

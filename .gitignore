@@ -1,5 +1,5 @@
 /node_modules
-/public/hot
+!/public/hotels
 /public/storage
 /storage/*.key
 /vendor
@@ -13,3 +13,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+!/storage/app/public/hotels
+!/public/storage/hotels
