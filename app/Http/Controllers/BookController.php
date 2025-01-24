@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\BookController;
@@ -34,7 +35,7 @@ class BookController extends Controller
         }
         if(auth()->user()->hasRole('hotel-owner')){
             $rooms = Room::where('hotel_id', auth()->id())->get()->pluck('id')->toArray();
-            $bookings = DB::table('bookings')->whereIn('rom_id', $rooms)->get();
+            $bookings = DB::table('bookings')->whereIn('room_id', $rooms)->get();
         }
         if(auth()->user()->hasRole('client')){
         $bookings = DB::table('bookings')->select('*')->where('user_id', auth()->id())->get();

@@ -34,9 +34,9 @@
                                 <div class="col-3">
                                     <div class="card">
                                         @php
-                                            $hotel_image_url = (str_contains($hotel->image, 'http')) ? $hotel->image : asset('storage/' .$hotel->image);
+                                            $hotel_image_url = (str_contains($hotel->image, 'http')) ? $hotel->image : asset('storage/hotels/' .$hotel->image);
                                         @endphp
-                                        <img src="{{ $hotel->image }}" class="card-img-top" alt="{{ $hotel->name }}">
+                                        <img src="{{ $hotel_image_url }}" class="card-img-top" alt="{{ $hotel->name }}">
                                         <div class="card-body">
                                             <h5 class="card-title d-flex justify-content-between align-items-start">{{ $hotel->name }} <span class="badge bg-warning">{{ $hotel->stars }} <i class="bi bi-star"></i></span></h5>
                                             <p class="card-text">

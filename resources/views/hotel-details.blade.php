@@ -30,10 +30,10 @@
                 <div class="container">
                     <div class="d-flex justify-content-between align-items-start">
                         @php
-                            $hotel_image_url = (str_contains($hotel->image, 'http')) ? $hotel->image : asset('storage/' .$hotel->image);
+                            $hotel_image_url = (str_contains($hotel->image, 'http')) ? $hotel->image : asset('storage/hotels/' .$hotel->image);
                         @endphp
                         <div class="w-25">
-                            <img src="{{ $hotel->image }}" class="card-img-top" alt="{{ $hotel->name }}">
+                            <img src="{{ $hotel_image_url }}" class="card-img-top" alt="{{ $hotel->name }}">
                         </div>
                         <div class="w-50 mx-5">
                             <h5 class="card-title d-flex justify-content-start align-items-start">

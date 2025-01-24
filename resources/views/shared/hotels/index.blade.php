@@ -40,7 +40,7 @@
                                 <span>Rooms: {{ $hotel->rooms()->count() }}</span>
                                 @role('hotel-owner')
                                 <br>
-                                <a href="" style="text-decoration: none;">Menaxho dhomat</a>
+                                <a href="{{ route('rooms.index') }}?hotel-id={{ $hotel->id }}" style="text-decoration: none;">Menaxho dhomat</a>
                                 @endrole
                             </td>
                             <td>{{ $hotel->stars}}</td>
@@ -72,7 +72,7 @@
                     </table>
                 @else
                     <div class="alert alert-info mt-5" role="alert">
-                        Ende nuk keni bërë asnjë rezervim!
+                        0 hotele
                     </div>
                 @endif
             </div>
