@@ -36,6 +36,6 @@ Route::get("/booking/{id}/delete", [BookController::class, 'delete'])->name('boo
 
 Route::resource('hotels', HotelController::class);
 Route::resource('rooms', RoomController::class);
-Route::resource('users', UserController::class)->only(['index', 'destroy']);
+Route::resource('users', UserController::class)->only(['index', 'destroy'])->middleware('role:admin');
 
 require __DIR__.'/auth.php';

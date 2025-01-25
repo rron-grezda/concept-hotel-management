@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        // Përdorim middleware për rolet admin dhe hotel-owner
+        $this->middleware('role:admin')->only(['index', 'destroy']);
+    }
     /**
      * Display a listing of the resource.
      *
