@@ -17,7 +17,9 @@
                     </div>
                 @endif
 
+                @role('hotel-owner')
                 <a href="{{ route('hotels.create') }}" class="btn btn-sm btn-outline-primary"><i class="bi bi-plus"></i> Shto hotel të ri</a>
+                @endrole
                 @if($hotels->count() > 0)
                     <table class="table table-bordered mt-5">
                         <tr>

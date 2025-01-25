@@ -10,7 +10,10 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4">
+
+                @role('hotel-owner')
                 <a href="{{ route('hotels.create') }}" class="btn btn-sm btn-outline-primary"><i class="bi bi-plus"></i> Shto hotel të ri</a>
+                @endrole
                 @if($hotels->count() > 0)
                     <table class="table table-bordered mt-5">
                         <tr>
@@ -65,7 +68,7 @@
                     </table>
                 @else
                     <div class="alert alert-info mt-5" role="alert">
-                        Ende nuk keni bërë asnjë rezervim!
+                        0 hotele
                     </div>
                 @endif
             </div>

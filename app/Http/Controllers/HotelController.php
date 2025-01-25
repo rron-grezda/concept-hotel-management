@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Storage;
 
 class HotelController extends Controller
 {
-    function __construct(){
-        // if(!auth()->user()->hasRole(['admin', 'hotel-owner'])){
-        //     return redirect()->route('dashboard');
-        // }
-    }
     /**
      * Display a listing of the resource.
      *

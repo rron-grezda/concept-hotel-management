@@ -24,7 +24,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h1>{{ $users }}</h1>
-                                    <p>Përdoruesit</p>
+                                    <a href="{{ route('users.index') }}" style="text-decoration: none;">
+                                        <p>Përdoruesit</p>
+                                    </a>
                                 </div>
                             </div>        
                         </div>
