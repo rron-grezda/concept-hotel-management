@@ -24,7 +24,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h1>{{ $users }}</h1>
-                                    <p>Users</p>
+                                    <p>Përdoruesit</p>
                                 </div>
                             </div>        
                         </div>
@@ -33,7 +33,7 @@
                                 <div class="card-body">
                                     <h1>{{ $hotels }}</h1>
                                     <a href="{{ route('hotels.index') }}" style="text-decoration: none;">
-                                        <p>Hotels</p>
+                                        <p>Hotelet</p>
                                     </a>
                                 </div>
                             </div>        
@@ -43,7 +43,7 @@
                                 <div class="card-body">
                                     <h1>{{ $bookings }}</h1>
                                     <a href="{{ route('bookings') }}" style="text-decoration: none;">
-                                        <p>Bookings</p>
+                                        <p>Rezervimet</p>
                                     </a>
                                 </div>
                             </div>        
@@ -61,7 +61,7 @@
                                 <div class="card-body">
                                     <h1>{{ count($hotels) }}</h1>
                                     <a href="{{ route('hotels.index') }}" style="text-decoration: none;">
-                                        <p>Hotels</p>
+                                        <p>Hotelet</p>
                                     </a>
                                 </div>
                             </div>        
@@ -71,7 +71,7 @@
                                 <div class="card-body">
                                     <h1><i class="bi bi-list-ul"></i></h1>
                                     <a href="{{ route('bookings') }}" style="text-decoration: none;">
-                                        <p>Bookings</p>
+                                        <p>Rezervimet</p>
                                     </a>
                                 </div>
                             </div>        
@@ -88,7 +88,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h1>{{ $bookings }}</h1>
-                                        <a href="{{ route('bookings') }}" style="text-decoration: none;">bookings</a>
+                                        <a href="{{ route('bookings') }}" style="text-decoration: none;">rezervimet</a>
                                     </div>
                                 </div>        
                             </div>

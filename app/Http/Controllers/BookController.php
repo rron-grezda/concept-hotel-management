@@ -33,12 +33,15 @@ class BookController extends Controller
         if(auth()->user()->hasRole('admin')){
             $bookings = DB::table('bookings')->select('*')->get();
         }
+
         if(auth()->user()->hasRole('hotel-owner')){
+            
             $rooms = Room::where('hotel_id', auth()->id())->get()->pluck('id')->toArray();
             $bookings = DB::table('bookings')->whereIn('room_id', $rooms)->get();
         }
+        
         if(auth()->user()->hasRole('client')){
-        $bookings = DB::table('bookings')->select('*')->where('user_id', auth()->id())->get();
+            $bookings = DB::table('bookings')->select('*')->where('user_id', auth()->id())->get();
         }
 
         return view('shared.bookings.index', ['bookings' => $bookings]);
