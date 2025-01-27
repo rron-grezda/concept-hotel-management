@@ -6,6 +6,7 @@ use App\Models\Room;
 use App\Models\Hotel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class RoomController extends Controller
 {
@@ -49,10 +50,16 @@ class RoomController extends Controller
         'guests' => 'required|integer|min:1',
         'price' => 'required|numeric|min:0',
         'description' => 'required',
+        'room_photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
         ]);
+
+        if ($request->hasFile('room_photo')) {
+        $photoPath = $request->file('room_photo')->store('room_photos', 'public');
+    }
 
         $data = $request->except('_token');
         $data['hotel_id'] = Session::get('hotel_id');
+        $data['room_photo'] = $photoPath;
 
         if(Room::create($data)){
             return redirect()->route('rooms.index')->with('status', 'Dhoma u shtua me sukses.');
@@ -89,19 +96,33 @@ class RoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         $request->validate([
-        'type' => 'required',
-        'guests' => 'required|integer|min:1',
-        'price' => 'required|numeric|min:0',
-        'description' => 'required',
+            'type' => 'required',
+            'guests' => 'required|integer|min:1',
+            'price' => 'required|numeric|min:0',
+            'description' => 'required',
+            'room_photo' => 'nullable|image',
         ]);
+
+        $room = Room::findOrFail($id);
+
+        if ($request->hasFile('room_photo')) {
+            if ($room->room_photo) {
+                Storage::disk('public')->delete($room->room_photo);
+            }
+            $photoPath = $request->file('room_photo')->store('room_photos', 'public');
+        } else {
+            $photoPath = $room->room_photo;
+        }
 
         $data = $request->except('_token');
         $data['hotel_id'] = Session::get('hotel_id');
+        $data['room_photo'] = $photoPath;
 
-        if(Room::findOrFail($id)->update($data)){
+        if ($room->update($data)) {
             return redirect()->route('rooms.index')->with('status', 'Dhoma u përditësua me sukses.');
         }
         return redirect()->back()->with('status', 'Dhoma nuk u përditësua - diçka shkoi keq!');

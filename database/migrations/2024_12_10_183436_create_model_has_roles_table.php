@@ -11,14 +11,17 @@ class CreateModelHasRolesTable extends Migration
      *
      * @return void
      */
+
     public function up()
     {
-        Schema::create('model_has_roles', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('role_id')->constrained('roles');
-            $table->morphs('model');  // Kjo është për lidhjen me përdoruesit dhe modelet e tjera
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('model_has_roles')) {
+            Schema::create('model_has_roles', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('role_id')->constrained('roles');
+                $table->morphs('model');
+                $table->timestamps();
+            });
+        }
     }
 
     /**

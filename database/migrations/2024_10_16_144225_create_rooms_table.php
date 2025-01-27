@@ -20,12 +20,12 @@ class CreateRoomsTable extends Migration
             $table->integer('guests');
             $table->float('price');
             $table->text('description');
+            $table->string('room_photo', 2048)->nullable();
             $table->timestamps();
 
-            $table->foreign('hotel_id')->references('id')->on('hotels');
+            $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
         });
     }
-
     /**
      * Reverse the migrations.
      *

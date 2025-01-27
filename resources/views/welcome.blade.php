@@ -9,24 +9,26 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        
     </head>
     <body class="antialiased">
         <div class="container my-5">
             @if (Route::has('login'))
                 <div class="d-flex justify-content-end">
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-speedometer2"></i> Dashboard</a>
+                        <a href="{{ url('/dashboard') }}" class="btn btn-sm btn-primary"><i class="bi bi-speedometer2"></i> Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="btn btn-sm me-2 btn-outline-secondary"><i class="bi bi-box-arrow-in-right"></i> Kyçu</a>
+                        <a href="{{ route('login') }}" class="btn btn-sm me-2 btn-primary"><i class="bi bi-box-arrow-in-right"></i> Kyçu</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-person-add"></i> Regjistrohu</a>
+                            <a href="{{ route('register') }}" class="btn btn-sm btn-primary"><i class="bi bi-person-add"></i> Regjistrohu</a>
                         @endif
                     @endauth
                 </div>
             @endif
-
-            <div class="p-5 rounded bg-light mt-5">
+        
+            <div class="p-5 mt-5">
                 <div class="container">
                     @if ($errors->any())
                         <div class="alert alert-info mb-4">
@@ -37,7 +39,11 @@
                             </ul>
                         </div>
                     @endif
-                    <h2 class="text-center mb-4">Kërko hotelet</h2>
+                    <h1 class= "fw-bold" style="color: #21130d; text-align: center;">Mirë se vini</h1>
+                    <br>
+                    <h2 class="text-center mb-4 fw-bold" style="color: #21130d; text-align: center;">
+                        Kërko hotelet
+                    </h2>
                     <form action="/search" class="d-flex align-items-center justify-content-between gap-3">
                         <div class="form-group w-50">
                             <input type="search" name="hotel" required value="{{ old('hotel') }}" placeholder="Shëno emrin e hotelit" class="form-control">
@@ -60,7 +66,7 @@
                                 @endif
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-outline-primary"><i class="bi bi-search"></i></button>
+                        <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
                     </form>
                 </div>
             </div>
