@@ -13,10 +13,10 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" style="text-decoration: none;">
-                        {{ __('Dashboard') }}
+                        {{ __('messages.dashboard') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('welcome') }}" :active="request()->routeIs('welcome')" style="text-decoration: none;">
-                        {{ __('Search') }}
+                        {{ __('messages.search') }}
                     </x-jet-nav-link>
                 </div>
             </div>

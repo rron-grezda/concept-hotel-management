@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Hotelet') }}
+            {{ __('messages.hotels') }}
         </h2>
     </x-slot>
 
@@ -13,19 +13,20 @@
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4">
 
                     @role('hotel-owner')
-                    <a href="{{ route('hotels.create') }}" class="btn btn-sm btn-outline-primary"><i class="bi bi-plus"></i> Shto hotel të ri</a>
+                    <a href="{{ route('hotels.create') }}" class="btn btn-sm btn-outline-primary"><i class="bi bi-plus"></i> {{ __('messages.add_new_hotel') }}</a>
                     @endrole
+
                     @if($hotels->count() > 0)
                         <table class="table table-bordered mt-5">
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>Stars</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Address</th>
-                                <th>ZIP</th>
-                                <th>Image</th>
+                                <th>{{ __('messages.name') }}</th>
+                                <th>{{ __('messages.stars') }}</th>
+                                <th>{{ __('messages.email') }}</th>
+                                <th>{{ __('messages.phone') }}</th>
+                                <th>{{ __('messages.address') }}</th>
+                                <th>{{ __('messages.zip') }}</th>
+                                <th>{{ __('messages.image') }}</th>
                                 <th></th>
                             </tr>
                             @foreach($hotels as $hotel)
@@ -34,10 +35,10 @@
                                 <td>
                                     {{ $hotel->name}}
                                     <br><br>
-                                    <span>Rooms: {{ $hotel->rooms()->count() }}</span>
+                                    <span>{{ __('messages.rooms') }}: {{ $hotel->rooms()->count() }}</span>
                                     @role('hotel-owner')
                                     <br>
-                                    <a href="{{ route('rooms.index') }}?hotel-id={{ $hotel->id }}" style="text-decoration: none;" style="text-decoration: none;">Menaxho dhomat</a>
+                                    <a href="{{ route('rooms.index') }}?hotel-id={{ $hotel->id }}" style="text-decoration: none;">{{ __('messages.manage_rooms') }}</a>
                                     @endrole
                                 </td>
                                 <td>{{ $hotel->stars}}</td>
@@ -57,9 +58,8 @@
                                     </a>
                                     <form method="POST" action="{{ route('hotels.destroy', ['hotel' => $hotel->id]) }}" class="d-inline">
                                         @csrf
-                                        <!-- Bejme method spoofing per tu kthyer nga metoda POST ne DELETE -->
-                                        @method('DELETE') 
-                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('A jeni i sigurtë?')">
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('{{ __('messages.confirm_delete') }}')">
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </form>
@@ -69,7 +69,7 @@
                         </table>
                     @else
                         <div class="alert alert-info mt-5" role="alert">
-                            0 hotele
+                            {{ __('messages.no_hotels') }}
                         </div>
                     @endif
                 </div>

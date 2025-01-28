@@ -69,9 +69,9 @@ class HotelController extends Controller
         }
 
         if(Hotel::create($data)){
-            return redirect()->route('hotels.index')->with('status', 'Hoteli u shtua me sukses.');
+            return redirect()->route('hotels.index')->with('status', __('messages.hotel_added_successfully'));
         }
-        return redirect()->back()->with('status', 'Hoteli nuk u shtua - diçka shkoi keq!');
+        return redirect()->back()->with('status', __('messages.hotel_added_failed'));
     }
 
     /**
@@ -133,9 +133,9 @@ class HotelController extends Controller
         }
 
         if(Hotel::find($id)->update($data)){
-            return redirect()->back()->with('status', 'Hoteli u përditësua me sukses.');
+            return redirect()->back()->with('status', __('messages.hotel_updated_successfully'));
         }
-        return redirect()->back()->with('status', 'Hoteli nuk u përditësua - diçka shkoi keq!');
+        return redirect()->back()->with('status', __('messages.hotel_updated_failed'));
     }
 
     /**
@@ -149,9 +149,9 @@ class HotelController extends Controller
         $hotel = Hotel::findOrFail($id);
 
         if($hotel->delete()){
-            return redirect()->back()->with('status', 'Të dhënat e hotelit u fshinë me sukses.');
+            return redirect()->back()->with('status', __('messages.hotel_deleted_successfully'));
         }
 
-        return redirect()->back()->with('status', 'Të dhënat e hotelit nuk u fshinë - diçka shkoi keq!');
+        return redirect()->back()->with('status', __('messages.hotel_delete_error'));
     }
 }

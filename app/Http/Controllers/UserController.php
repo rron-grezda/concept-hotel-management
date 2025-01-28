@@ -89,9 +89,9 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         if($user->delete()){
-            return redirect()->back()->with('status', 'Përdoruesi u fshi me sukses.');
+            return redirect()->back()->with('status', __('messages.user_deleted_success'));
         }
 
-        return redirect()->back()->with('status', 'Përdoruesi nuk u fshi - diçka shkoi keq!');
+        return redirect()->back()->with('status', __('messages.user_deleted_failure'));
     }
 }

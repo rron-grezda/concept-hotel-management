@@ -6,6 +6,7 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\LanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,5 +38,18 @@ Route::get("/booking/{id}/delete", [BookController::class, 'delete'])->name('boo
 Route::resource('hotels', HotelController::class);
 Route::resource('rooms', RoomController::class);
 Route::resource('users', UserController::class)->only(['index', 'destroy'])->middleware('role:admin');
+
+Route::get('/set-locale/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'sq', 'fi'])) {
+        if (auth()->check()) {
+            $user = auth()->user();
+            $user->locale = $locale;
+            $user->save();
+        } else {
+            session(['locale' => $locale]);
+        }
+    }
+    return redirect()->back();
+})->name('set-locale');
 
 require __DIR__.'/auth.php';

@@ -23,10 +23,10 @@ class BookController extends Controller
             'checkout' => $request->checkout,
             'guests' => $request->guests
         ])) {
-            return redirect()->back()->with('status', 'Rezervimi u krye me sukses.');
+            return redirect()->back()->with('status', __('messages.booking_success'));
         }
 
-        return redirect()->back()->with('status', 'Rezervimi u anulua - diçka shkoi keq!');
+        return redirect()->back()->with('status', __('messages.booking_failed'));
     }
 
     function bookings(){
@@ -49,9 +49,9 @@ class BookController extends Controller
 
     function delete($id){
         if(DB::table('bookings')->delete($id)){
-            return redirect()->back()->with('status', 'Rezervimi u fshi me sukses.');
+            return redirect()->back()->with('status', __('messages.booking_success'));
         }
 
-        return redirect()->back()->with('status', 'Rezervimi nuk u fshi - diçka shkoi keq!');
+        return redirect()->back()->with('status', __('messages.booking_failed'));
     }
 }

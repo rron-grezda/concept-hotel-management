@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Shto hotel të ri') }}
+            {{ __('messages.add_new_hotel') }}
         </h2>
     </x-slot>
 
@@ -29,7 +29,7 @@
                         @csrf
                         <div class="form-group w-25 mb-3">
                             <select name="country_id" id="country" required class="form-select">
-                                <option value="">Shteti</option>
+                                <option value="">{{ __('messages.country') }}</option>
                                 @foreach(App\Models\Country::all() as $country)
                                     <option value="{{ $country->id }}">{{ $country->name }}</option>
                                 @endforeach
@@ -38,7 +38,7 @@
 
                         <div class="form-group w-25 mb-3">
                             <select name="city_id" id="city" required class="form-select">
-                                <option value="">Qyteti</option>
+                                <option value="">{{ __('messages.city_select') }}</option>
                                 @if(request()->get('country'))
                                     @foreach(App\Models\City::where('country_id', request()->get('country')) as $city)
                                         <option value="{{ $city->id }}">{{ $city->name }}</option>
@@ -48,42 +48,43 @@
                         </div>
 
                         <div class="form-group w-50 mb-3">
-                            <input type="search" name="name" required value="{{ old('name') }}" placeholder="Shëno emrin e hotelit" class="form-control">
+                            <input type="search" name="name" required value="{{ old('name') }}" placeholder="{{ __('messages.hotel_name') }}" class="form-control">
                         </div>
 
                         <div class="form-group w-50 mb-3">
-                            <label for="stars">Stars:</label>
+                            <label for="stars">{{ __('messages.stars') }}:</label>
                             <input type="number" name="stars" value="1" id="stars" required min="1" max="5" class="form-control">
                         </div>
 
                         <div class="form-group w-50 mb-3">
-                            <input type="email" name="email" required value="{{ old('email') }}" placeholder="Shëno emailin e hotelit" class="form-control">
+                            <input type="email" name="email" required value="{{ old('email') }}" placeholder="{{ __('messages.hotel_email') }}" class="form-control">
                         </div>
 
                         <div class="form-group w-50 mb-3">
-                            <input type="tel" name="phone" required value="{{ old('phone') }}" placeholder="Shëno numrin kontaktues të hotelit" class="form-control">
+                            <input type="tel" name="phone" required value="{{ old('phone') }}" placeholder="{{ __('messages.contact_phone') }}" class="form-control">
                         </div>
 
                         <div class="form-group w-50 mb-3">
-                            <input type="text" name="address" required value="{{ old('address') }}" placeholder="Shëno adresën e hotelit" class="form-control">
+                            <input type="text" name="address" required value="{{ old('address') }}" placeholder="{{ __('messages.hotel_address') }}" class="form-control">
                         </div>
 
                         <div class="form-group w-50 mb-3">
-                            <input type="text" name="zip" required value="{{ old('zip') }}" placeholder="Shëno zip" class="form-control">
+                            <input type="text" name="zip" required value="{{ old('zip') }}" placeholder="{{ __('messages.zip_code') }}" class="form-control">
                         </div>
 
                         <div class="form-group w-50 mb-3">
                             <input type="file" name="image" required class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-outline-primary"><i class="bi bi-plus"></i> Shto</button>
+                        <button type="submit" class="btn btn-outline-primary"><i class="bi bi-plus"></i> {{ __('messages.submit') }}</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
     <script>
-        document.querySelector('#country').addEventListener('change', e=>{
-            let cities = '<option value="">Qyteti</option>';
+        document.querySelector('#country').addEventListener('change', e => {
+            let cities = `<option value="">{{ __('messages.city_select') }}</option>`;
             let xhr = new XMLHttpRequest();
 
             let url = `/country/${e.target.value}/cities`;

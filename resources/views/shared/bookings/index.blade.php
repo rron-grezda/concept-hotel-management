@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Rezervimet') }}
+            {{ __('messages.bookings') }}
         </h2>
     </x-slot>
 
@@ -16,10 +16,10 @@
                         <table class="table table-bordered mt-5">
                             <tr>
                                 <th>#</th>
-                                <th>Dhoma</th>
-                                <th>Checkin</th>
-                                <th>Checkout</th>
-                                <th># nr. i personave</th>
+                                <th>{{ __('messages.room') }}</th>
+                                <th>{{ __('messages.checkin') }}</th>
+                                <th>{{ __('messages.checkout') }}</th>
+                                <th>{{ __('messages.number_of_guests') }}</th>
                                 @if(auth()->check() && auth()->user()->hasRole('hotel-owner'))
                                 <th></th>
                                 @endif
@@ -35,8 +35,8 @@
                                 <td><i class="bi bi-people"></i> {{ $booking->guests }}</td>
                                 @if(auth()->check() && auth()->user()->hasRole(['hotel-owner', 'admin']))
                                 <td>
-                                    <a href="{{ route('booking.delete', ['id' => $booking->id]) }}" class="btn btn-sm btn-outline-danger" onclick="return confirm('A jeni i sigurtë?')">
-                                        <i class="bi bi-trash"></i> Fshije
+                                    <a href="{{ route('booking.delete', ['id' => $booking->id]) }}" class="btn btn-sm btn-outline-danger" onclick="return confirm('{{ __('messages.confirm_delete') }}')">
+                                        <i class="bi bi-trash"></i>
                                     </a>
                                 </td>
                                 @endif
@@ -45,7 +45,7 @@
                         </table>
                     @else
                         <div class="alert alert-info mt-5" role="alert">
-                            Ende nuk keni bërë asnjë rezervim!
+                            {{ __('messages.no_bookings') }}
                         </div>
                     @endif
                 </div>

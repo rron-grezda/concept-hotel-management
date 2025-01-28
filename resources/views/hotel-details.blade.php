@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Search</title>
+        <title>{{ __('messages.search') }}</title>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -15,12 +15,12 @@
                 @if (Route::has('login'))
                     <div class="d-flex justify-content-end">
                         @auth
-                            <a href="{{ url('/dashboard') }}" class="btn btn-sm btn-primary"><i class="bi bi-speedometer2"></i> Dashboard</a>
+                            <a href="{{ url('/dashboard') }}" class="btn btn-sm btn-primary"><i class="bi bi-speedometer2"></i> {{ __('messages.dashboard') }}</a>
                         @else
-                            <a href="{{ route('login') }}" class="btn btn-sm me-2 btn-primary"><i class="bi bi-box-arrow-in-right"></i> Kyçu</a>
+                            <a href="{{ route('login') }}" class="btn btn-sm me-2 btn-primary"><i class="bi bi-box-arrow-in-right"></i> {{ __('messages.login') }}</a>
 
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="btn btn-sm btn-primary"><i class="bi bi-person-add"></i> Regjistrohu</a>
+                                <a href="{{ route('register') }}" class="btn btn-sm btn-primary"><i class="bi bi-person-add"></i> {{ __('messages.register') }}</a>
                             @endif
                         @endauth
                     </div>
@@ -49,7 +49,7 @@
                                 </p>
                             </div>
                             <div class="">
-                                <h2><i class="bi bi-hash"></i> dhoma</h2>
+                                <h2><i class="bi bi-hash"></i> {{ __('messages.rooms') }}</h2>
                                 <h1>{{ $hotel->rooms()->count() }}</h1>
                             </div>
                         </div>
@@ -83,10 +83,10 @@
                                 <td>
                                     @if(auth()->check())
                                     <button type="button" id="book-room-btn" room-id="{{ $room->id }}" guests="{{ $room->guests }}" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#bookRoom">
-                                        Rezervo
+                                        {{ __('messages.book') }}
                                     </button>
                                     @else
-                                        <small class="bg-warning p-1"><i class="bi bi-info-circle"></i> Kyçu në mënyrë që të bësh rezervimin</small>
+                                        <small class="bg-warning p-1"><i class="bi bi-info-circle"></i> {{ __('messages.login_to_book') }}</small>
                                     @endif
                                 </td>
                             </tr>
@@ -94,7 +94,7 @@
                         </table>
                         @else
                         <div class="alert alert-info mt-5" role="alert">
-                            Hoteli "{{ $hotel->name }}" nuk ka asnjë dhomë të lirë aktualisht!
+                            {{ __('messages.no_rooms_available', ['hotel' => $hotel->name]) }}
                         </div>
                         @endif
                     </div>
@@ -103,38 +103,39 @@
         </div>
         
         <!-- Rezervo dhomen -->
-        <div class="modal fade" id="bookRoom" tabindex="-1" aria-labelledby="bookRoomLabel" aria-hidden="true">
+         <div class="modal fade" id="bookRoom" tabindex="-1" aria-labelledby="bookRoomLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="bookRoomLabel">Rezervo</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h1 class="modal-title fs-5" id="bookRoomLabel">{{ __('messages.book') }}</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('messages.close') }}"></button>
                     </div>
                     <form method="POST" action="{{ route('book-room') }}">
                         @csrf
                         <div class="modal-body">
                             <div class="form-group mb-3">
-                                <label for="checkin">Data e akomodimit:</label>
+                                <label for="checkin">{{ __('messages.checkin_date') }}:</label>
                                 <input type="date" id="checkin" class="form-control" required name="checkin">
                             </div>
                             <div class="form-group mb-3">
-                                <label for="checkout">Data e lëshimit të dhomës:</label>
+                                <label for="checkout">{{ __('messages.checkout_date') }}:</label>
                                 <input type="date" id="checkout" class="form-control" required name="checkout">
                             </div>
                             <div class="form-group mb-3">
-                                <label for="guests">Numri i personave:</label>
+                                <label for="guests">{{ __('messages.number_of_guests') }}:</label>
                                 <input type="number" id="guests" value="1" class="form-control" required name="guests">
                             </div>
                             <input type="hidden" name="room_id" id="room_id" value="" />
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mbyll</button>
-                        <button type="submit" class="btn btn-primary">Rezervo</button>
-                    </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('messages.close') }}</button>
+                            <button type="submit" class="btn btn-primary">{{ __('messages.book') }}</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script>
             const book_room_buttons = document.querySelectorAll('#book-room-btn')

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('messages.dashboard') }}
         </h2>
     </x-slot>
 
@@ -26,7 +26,7 @@
                                     <div class="card-body">
                                         <h1>{{ $users }}</h1>
                                         <a href="{{ route('users.index') }}" style="text-decoration: none;">
-                                            <p>Përdoruesit</p>
+                                            <p>{{ __('messages.users') }}</p>
                                         </a>
                                     </div>
                                 </div>        
@@ -36,7 +36,7 @@
                                     <div class="card-body">
                                         <h1>{{ $hotels }}</h1>
                                         <a href="{{ route('hotels.index') }}" style="text-decoration: none;">
-                                            <p>Hotelet</p>
+                                            <p>{{ __('messages.hotels') }}</p>
                                         </a>
                                     </div>
                                 </div>        
@@ -46,7 +46,7 @@
                                     <div class="card-body">
                                         <h1>{{ $bookings }}</h1>
                                         <a href="{{ route('bookings') }}" style="text-decoration: none;">
-                                            <p>Rezervimet</p>
+                                            <p>{{ __('messages.bookings') }}</p>
                                         </a>
                                     </div>
                                 </div>        
@@ -64,7 +64,7 @@
                                     <div class="card-body">
                                         <h1>{{ count($hotels) }}</h1>
                                         <a href="{{ route('hotels.index') }}" style="text-decoration: none;">
-                                            <p>Hotelet</p>
+                                            <p>{{ __('messages.hotels') }}</p>
                                         </a>
                                     </div>
                                 </div>        
@@ -74,7 +74,7 @@
                                     <div class="card-body">
                                         <h1><i class="bi bi-list-ul"></i></h1>
                                         <a href="{{ route('bookings') }}" style="text-decoration: none;">
-                                            <p>Rezervimet</p>
+                                            <p>{{ __('messages.bookings') }}</p>
                                         </a>
                                     </div>
                                 </div>        
@@ -91,7 +91,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h1>{{ $bookings }}</h1>
-                                    <a href="{{ route('bookings') }}" style="text-decoration: none;">rezervimet</a>
+                                    <a href="{{ route('bookings') }}" style="text-decoration: none;">
+                                        <p>{{ __('messages.bookings') }}</p>
+                                    </a>
                                 </div>
                             </div>        
                         </div>

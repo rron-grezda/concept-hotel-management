@@ -17,12 +17,12 @@
                 @if (Route::has('login'))
                     <div class="d-flex justify-content-end">
                         @auth
-                            <a href="{{ url('/dashboard') }}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-speedometer2"></i> Dashboard</a>
+                            <a href="{{ url('/dashboard') }}" class="btn btn-sm btn-primary"><i class="bi bi-speedometer2"></i> {{ __('messages.dashboard') }}</a>
                         @else
-                            <a href="{{ route('login') }}" class="btn btn-sm me-2 btn-outline-secondary"><i class="bi bi-box-arrow-in-right"></i> Kyçu</a>
+                            <a href="{{ route('login') }}" class="btn btn-sm me-2 btn-primary"><i class="bi bi-box-arrow-in-right"></i> {{ __('messages.login') }}</a>
 
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-person-add"></i> Regjistrohu</a>
+                                <a href="{{ route('register') }}" class="btn btn-sm btn-primary"><i class="bi bi-person-add"></i> {{ __('messages.register') }}</a>
                             @endif
                         @endauth
                     </div>
@@ -48,7 +48,7 @@
                                                     {{ $hotel->zip }}
                                                     {{ App\Models\City::where('id', $hotel->city_id)->first()->name }}
                                                 </p>
-                                                <a href="{{ route('hotel-details', ['id' => $hotel->id]) }}" class="btn btn-sm btn-outline-primary">Më shumë <i class="bi bi-arrow-right"></i></a>
+                                                <a href="{{ route('hotel-details', ['id' => $hotel->id]) }}" class="btn btn-sm btn-outline-primary">{{ __('messages.more') }} <i class="bi bi-arrow-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@
                             </div>
                         @else
                         <div class="alert alert-info" role="alert">
-                            Nuk u gjet asnjë hotel me parametrat:
+                            {{ __('messages.no_hotels_found') }}
                             <strong><i>
                             {{ request()->get('hotel') }},
                             {{ App\Models\Country::where('id', request()->get('country'))->first()->name }},

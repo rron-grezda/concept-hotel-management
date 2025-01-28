@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Përditëso të dhënat e dhomës') }}
+            {{ __('messages.update_room_data') }}
         </h2>
     </x-slot>
 
@@ -31,26 +31,26 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group w-50 mb-3">
-                            <input type="text" name="type" required value="{{ $room->type }}" placeholder="Shëno tipin e dhomës" class="form-control">
+                            <input type="text" name="type" required value="{{ $room->type }}" placeholder="{{ __('messages.enter_room_type') }}" class="form-control">
                         </div>
 
                         <div class="form-group w-50 mb-3">
-                            <input type="number" name="guests" required value="{{ $room->guests }}" placeholder="Shëno numrin e personave" class="form-control">
+                            <input type="number" name="guests" required value="{{ $room->guests }}" placeholder="{{ __('messages.enter_guests_number') }}" class="form-control">
                         </div>
 
                         <div class="form-group w-50 mb-3">
-                            <input type="text" name="price" required value="{{ $room->price }}" placeholder="Shëno çmimin" class="form-control">
+                            <input type="text" name="price" required value="{{ $room->price }}" placeholder="{{ __('messages.enter_price') }}" class="form-control">
                         </div>
 
                         <div class="form-group w-50 mb-3">
-                            <textarea name="description" placeholder="Shëno përshkrimin" class="form-control">{{ $room->description }}</textarea>
+                            <textarea name="description" placeholder="{{ __('messages.enter_description') }}" class="form-control">{{ $room->description }}</textarea>
                         </div>
 
                         <div class="form-group">
                             <input type="file" name="room_photo" id="room_photo" class="form-control" accept="public/storage">
                         </div>
 
-                        <button type="submit" class="btn btn-outline-primary"><i class="bi bi-plus"></i> Përditëso</button>
+                        <button type="submit" class="btn btn-outline-primary"><i class="bi bi-plus"></i> {{ __('messages.update') }}</button>
                     </form>
                 </div>
             </div>

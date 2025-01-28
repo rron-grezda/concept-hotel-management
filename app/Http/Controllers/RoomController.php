@@ -62,9 +62,9 @@ class RoomController extends Controller
         $data['room_photo'] = $photoPath;
 
         if(Room::create($data)){
-            return redirect()->route('rooms.index')->with('status', 'Dhoma u shtua me sukses.');
+            return redirect()->route('rooms.index')->with('status', __('messages.room_added_successfully'));
         }
-        return redirect()->back()->with('status', 'Dhoma nuk u shtua - diçka shkoi keq!');
+        return redirect()->back()->with('status', __('messages.room_add_error'));
     }
 
     /**
@@ -123,9 +123,9 @@ class RoomController extends Controller
         $data['room_photo'] = $photoPath;
 
         if ($room->update($data)) {
-            return redirect()->route('rooms.index')->with('status', 'Dhoma u përditësua me sukses.');
+            return redirect()->route('rooms.index')->with('status', __('messages.room_updated_successfully'));
         }
-        return redirect()->back()->with('status', 'Dhoma nuk u përditësua - diçka shkoi keq!');
+        return redirect()->back()->with('status', __('messages.room_update_error'));
     }
 
     /**
@@ -139,9 +139,9 @@ class RoomController extends Controller
         $room = Room::findOrFail($id);
 
         if($room->delete()){
-            return redirect()->back()->with('status', 'Dhoma u fshi me sukses.');
+            return redirect()->back()->with('status', __('messages.room_deleted_successfully'));
         }
 
-        return redirect()->back()->with('status', 'Dhoma nuk u fshi - diçka shkoi keq!');
+        return redirect()->back()->with('status', __('messages.room_delete_error'));
     }
 }

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dhomat') }}
+            {{ __('messages.rooms') }}
         </h2>
     </x-slot>
 
@@ -18,16 +18,16 @@
                         </div>
                     @endif
 
-                    <a href="{{ route('rooms.create') }}" class="btn btn-sm btn-outline-primary"><i class="bi bi-plus"></i> Shto dhomë të re</a>
+                    <a href="{{ route('rooms.create') }}" class="btn btn-sm btn-outline-primary"><i class="bi bi-plus"></i> {{ __('messages.add_new_room') }}</a>
                     @if($rooms->count() > 0)
                         <table class="table table-bordered mt-5">
                             <tr>
                                 <th>#</th>
-                                <th>Type</th>
-                                <th>Description</th>
-                                <th>Guests</th>
-                                <th>Price</th>
-                                <th>Photo</th>
+                                <th>{{ __('messages.type') }}</th>
+                                <th>{{ __('messages.description') }}</th>
+                                <th>{{ __('messages.guests') }}</th>
+                                <th>{{ __('messages.price') }}</th>
+                                <th>{{ __('messages.photo') }}</th>
                                 <th></th>
                             </tr>
                             @foreach($rooms as $room)
@@ -42,7 +42,6 @@
                                         $room_image_url = (str_contains($room->image, 'http')) ? $room->image : asset('storage/rooms/' .$room->image);
                                     @endphp
                                     <img src="{{ Storage::url($room->room_photo) }}" alt="Room Photo" style="width: 100px; height: auto;">
-                                    <!-- <img src="{{ $room_image_url }}" style="height: 80px !important;" alt="{{ $room->name }}"> -->
                                 </td>
                                 <td width="110px">
                                     <a href="{{ route('rooms.edit', ['room' => $room->id]) }}" class="btn btn-sm btn-outline-primary">
@@ -50,9 +49,8 @@
                                     </a>
                                     <form method="POST" action="{{ route('rooms.destroy', ['room' => $room->id]) }}" class="d-inline">
                                         @csrf
-                                        <!-- Bejme method spoofing per tu kthyer nga metoda POST ne DELETE -->
                                         @method('DELETE') 
-                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('A jeni i sigurtë?')">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('{{ __('messages.confirm_delete') }}')">
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </form>
@@ -62,7 +60,7 @@
                         </table>
                     @else
                         <div class="alert alert-info mt-5" role="alert">
-                            0 dhoma
+                            {{ __('messages.no_rooms') }}
                         </div>
                     @endif
                 </div>

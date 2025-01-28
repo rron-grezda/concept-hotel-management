@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Përdoruesit') }}
+            {{ __('messages.users') }}
         </h2>
     </x-slot>
 
@@ -15,8 +15,8 @@
                     <table class="table table-bordered mt-5">
                         <tr>
                             <th>#</th>
-                            <th>Emri dhe mbiemri</th>
-                            <th>Email</th>
+                            <th>{{ __('messages.name_and_surname') }}</th>
+                            <th>{{ __('messages.email') }}</th>
                             <th></th>
                         </tr>
                         @foreach($users as $user)
@@ -27,9 +27,8 @@
                             <td>
                                 <form method="POST" action="{{ route('users.destroy', ['user' => $user->id]) }}" class="d-inline">
                                     @csrf
-                                    <!-- Bejme method spoofing per tu kthyer nga metoda POST ne DELETE -->
                                     @method('DELETE') 
-                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('A jeni i sigurtë?')">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('{{ __('messages.are_you_sure') }}')">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </form>
@@ -39,7 +38,7 @@
                     </table>
                 @else
                     <div class="alert alert-info mt-5" role="alert">
-                        0 përdorues
+                        {{ __('messages.no_users') }}
                     </div>
                 @endif
             </div>
