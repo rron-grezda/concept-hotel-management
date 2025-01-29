@@ -18,6 +18,9 @@
                     <x-jet-nav-link href="{{ route('welcome') }}" :active="request()->routeIs('welcome')" style="text-decoration: none;">
                         {{ __('messages.search') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')" style="text-decoration: none;">
+                        {{ __('messages.about') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 

@@ -12,6 +12,16 @@ return [
     'select_country' => 'Valitse maa',
     'select_city' => 'Valitse kaupunki',
 
+    //about us
+    'about' => 'Meistä',
+    'welcome_message' => 'Tervetuloa Hotelliimme',
+    'mission' => 'Missiomme',
+    'mission_description' => 'Varmistamme mukautuvuuden, ylellisen ja unohtumattoman kokemuksen kaikille vieraillemme tarjoamalla palveluja ja olosuhteita, jotka ylittävät odotukset. Tavoitteemme on tarjota vieraillemme rentouttava ja erityinen ympäristö, jossa jokainen yksityiskohta on suunniteltu tarjoamaan heille mukautuvan ja unohtumattoman oleskelun.',
+    'contact' => 'Ota Yhteyttä',
+    'email' => 'Sähköposti',
+    'Phone' => 'Puhelin',
+    'follow_us' => 'Seuraa meitä osoitteessa',
+
     //search hotel page
     'more' => 'Lisää',
     'no_hotels_found' => 'Hotelleja ei löytynyt annetuilla parametreilla:',
@@ -126,4 +136,69 @@ return [
     'email' => 'Sähköposti',
     'are_you_sure' => 'Oletko varma?',
     'no_users' => 'Ei käyttäjiä',
+
+    //user - profile information
+    'Profile' => 'Profiili',
+    'Profile Information' => 'Profiilitiedot',
+    'Update your account\'s profile information and email address.' => 'Päivitä tilisi profiilitiedot ja sähköpostiosoite.',
+    'Photo' => 'Valokuva',
+    'Select A New Photo' => 'Valitse uusi valokuva',
+    'Remove Photo' => 'Poista valokuva',
+    'Name' => 'Nimi',
+    'Email' => 'Sähköposti',
+    'Saved.' => 'Tallennettu.',
+    'Save' => 'Tallenna',
+    'Your email address is unverified.' => 'Sähköpostiosoitteesi ei ole vahvistettu.',
+    'Click here to re-send the verification email.' => 'Napsauta tästä lähettääksesi vahvistusviestin uudelleen.',
+    'A new verification link has been sent to your email address.' => 'Uusi vahvistuslinkki on lähetetty sähköpostiosoitteeseesi.',
+
+    //user - update password
+    'Update Password' => 'Päivitä Salasana',
+    'Ensure your account is using a long, random password to stay secure.' => 'Varmista, että tilisi käyttää pitkää, satunnaista salasanaa pysyäksesi turvassa.',
+    'Current Password' => 'Nykyinen Salasana',
+    'New Password' => 'Uusi Salasana',
+    'Confirm Password' => 'Vahvista Salasana',
+    'Save' => 'Tallenna',
+    'Saved.' => 'Tallennettu.',
+
+    //user - two factor authentication
+    'Two Factor Authentication' => 'Kahden tekijän todentaminen',
+    'Add additional security to your account using two factor authentication.' => 'Lisää lisäturvaa tiliisi käyttämällä kahden tekijän todentamista.',
+    'Finish enabling two factor authentication.' => 'Viimeistele kahden tekijän todentamisen käyttöönottaminen.',
+    'You have enabled two factor authentication.' => 'Olet ottanut käyttöön kahden tekijän todentamisen.',
+    'You have not enabled two factor authentication.' => 'Et ole ottanut käyttöön kahden tekijän todentamista.',
+    'When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone\'s Google Authenticator application.' => 'Kun kahden tekijän todentaminen on käytössä, sinulta pyydetään turvallinen satunnainen tunnus todentamisen aikana. Voit hakea tämän tunnuksen puhelimesi Google Authenticator -sovelluksesta.',
+    'To finish enabling two factor authentication, scan the following QR code using your phone\'s authenticator application or enter the setup key and provide the generated OTP code.' => 'Viimeistele kahden tekijän todentamisen käyttöönotto skannaamalla seuraava QR-koodi puhelimesi autentikointisovelluksella tai syöttämällä asetuskoodi ja antamalla luodun OTP-koodin.',
+    'Two factor authentication is now enabled. Scan the following QR code using your phone\'s authenticator application or enter the setup key.' => 'Kahden tekijän todentaminen on nyt käytössä. Skannaa seuraava QR-koodi puhelimesi autentikointisovelluksella tai syötä asetuskoodi.',
+    'Setup Key' => 'Asetuskoodi',
+    'Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.' => 'Tallenna nämä palautuskoodit turvalliseen salasanojen hallintaan. Niitä voidaan käyttää tilisi palauttamiseen, jos kahden tekijän todentamislaitteesi katoaa.',
+    'Regenerate Recovery Codes' => 'Luo palautuskoodit uudelleen',
+    'Confirm' => 'Vahvista',
+    'Enable' => 'Ota käyttöön',
+    'Show Recovery Codes' => 'Näytä palautuskoodit',
+    'Cancel' => 'Peruuta',
+    'Disable' => 'Poista käytöstä',
+    'Saved.' => 'Tallennettu.',
+    'Save' => 'Tallenna',
+
+    //user - browser sessions
+    'Browser Sessions' => 'Selaimen istunnot',
+    'Manage and log out your active sessions on other browsers and devices.' => 'Hallitse ja kirjaudu ulos aktiivisista istunnoistasi muilla selaimilla ja laitteilla.',
+    'If necessary, you may log out of all of your other browser sessions across all of your devices. Some of your recent sessions are listed below; however, this list may not be exhaustive. If you feel your account has been compromised, you should also update your password.' => 'Tarvittaessa voit kirjautua ulos kaikista muista selaimen istunnoistasi kaikilla laitteillasi. Jotkut viimeisimmistä istunnoistasi on lueteltu alla; kuitenkin tämä luettelo ei ole kattava. Jos koet, että tilisi on vaarantunut, sinun pitäisi myös päivittää salasanasi.',
+    'Log Out Other Browser Sessions' => 'Kirjaudu ulos muista selaimen istunnoista',
+    'Done.' => 'Valmis.',
+    'Please enter your password to confirm you would like to log out of your other browser sessions across all of your devices.' => 'Syötä salasanasi vahvistaaksesi, että haluat kirjautua ulos muista selaimen istunnoistasi kaikilla laitteillasi.',
+    'Password' => 'Salasana',
+    'Cancel' => 'Peruuta',
+    'Log Out Other Browser Sessions' => 'Kirjaudu ulos muista selaimen istunnoista',
+    
+    //user - delete account
+    'Delete Account' => 'Poista Tili',
+    'Permanently delete your account.' => 'Poista tilisi pysyvästi.',
+    'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.' => 'Kun tilisi on poistettu, kaikki sen resurssit ja tiedot poistetaan pysyvästi. Ennen kuin poistat tilisi, lataa kaikki tiedot tai tiedot, jotka haluat säilyttää.',
+    'Delete Account' => 'Poista Tili',
+    'Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.' => 'Oletko varma, että haluat poistaa tilisi? Kun tilisi on poistettu, kaikki sen resurssit ja tiedot poistetaan pysyvästi. Syötä salasanasi vahvistaaksesi, että haluat poistaa tilisi pysyvästi.',
+    'Password' => 'Salasana',
+    'Cancel' => 'Peruuta',
+    'Delete Account' => 'Poista Tili',
 ];

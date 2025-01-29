@@ -31,6 +31,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
 Route::post("/book", [BookController::class, 'book'])->name('book-room');
 Route::get("/bookings", [BookController::class, 'bookings'])->name('bookings');
 Route::get("/booking/{id}/delete", [BookController::class, 'delete'])->name('booking.delete');

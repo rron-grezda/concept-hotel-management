@@ -1,7 +1,8 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <!-- Vendos logon këtu -->
+            <img src="https://logos-world.net/wp-content/uploads/2021/08/Booking-Symbol.png" alt="Hotel Logo" width="100" height="60">
         </x-slot>
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <script src="{{ mix('js/app.js') }}" defer></script>
